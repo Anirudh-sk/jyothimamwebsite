@@ -1,0 +1,339 @@
+/* Global Styles */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;500;700&display=swap');
+
+:root {
+    --primary: #6c63ff;
+    --secondary: #5a54d4;
+    --light: #2e3035;
+    --dark: #f8f9fa;
+    --accent: #9d8cff;
+    --bg-dark: #18191c;
+    --card-dark: #222327;
+    --text-muted: #adb5bd;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    overflow-x: hidden;
+    background-color: var(--bg-dark);
+    color: var(--dark);
+    position: relative;
+}
+
+h1, h2, h3, h4 {
+    font-family: 'Playfair Display', serif;
+}
+
+/* Particles Background */
+#particles-js {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+/* Hero Section */
+.hero-section {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--bg-dark);
+    color: white;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-section .container {
+    position: relative;
+    z-index: 2;
+}
+
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: -10%;
+    right: -10%;
+    width: 60%;
+    height: 60%;
+    background: rgba(108, 99, 255, 0.1);
+    border-radius: 50%;
+}
+
+.hero-section::after {
+    content: '';
+    position: absolute;
+    bottom: -15%;
+    left: -15%;
+    width: 70%;
+    height: 70%;
+    background: rgba(108, 99, 255, 0.1);
+    border-radius: 50%;
+}
+.hero-message {
+    max-width: 600px;
+    margin: 2rem auto;
+    line-height: 1.8;
+    font-size: 1.1rem;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    position: relative;
+    z-index: 2;
+}
+
+.typewrite {
+    color: #fff;
+    text-decoration: none;
+    position: relative;
+}
+
+.typewrite::after {
+    content: '|';
+    position: absolute;
+    right: -8px;
+    top: 0;
+    animation: blink 0.7s infinite;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+.scroll-btn {
+    transition: transform 0.3s ease;
+    background: rgba(255, 255, 255, 0.15);
+    color: white;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.scroll-btn:hover {
+    transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.25);
+    color: white;
+}
+
+.scroll-btn i {
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+    40% { transform: translateY(-10px); }
+    60% { transform: translateY(-5px); }
+}
+
+/* Message Section */
+.message-section {
+    background-color: var(--bg-dark);
+    padding: 80px 0;
+}
+
+.section-title {
+    color: var(--dark);
+    position: relative;
+    display: inline-block;
+    margin-bottom: 3rem;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background: var(--primary);
+    border-radius: 3px;
+}
+
+.timeline {
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.timeline::after {
+    content: '';
+    position: absolute;
+    width: 6px;
+    background-color: var(--primary);
+    opacity: 0.4;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    margin-left: -3px;
+    border-radius: 10px;
+}
+
+.message-container {
+    padding: 10px 40px;
+    position: relative;
+    width: 50%;
+    margin-bottom: 40px;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.message-container.animated {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.message-container.left {
+    left: 0;
+}
+
+.message-container.right {
+    left: 50%;
+}
+
+.message-container::after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: var(--card-dark);
+    border: 4px solid var(--primary);
+    top: 15px;
+    border-radius: 50%;
+    z-index: 1;
+    box-shadow: 0 0 0 5px rgba(108, 99, 255, 0.1);
+    transition: box-shadow 0.3s ease;
+}
+
+.message-container:hover::after {
+    box-shadow: 0 0 0 8px rgba(108, 99, 255, 0.2);
+}
+
+.message-container.left::after {
+    right: -10px;
+}
+
+.message-container.right::after {
+    left: -10px;
+}
+
+.message-content {
+    padding: 25px;
+    background-color: var(--card-dark);
+    position: relative;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border: 1px solid rgba(108, 99, 255, 0.2);
+    overflow: hidden;
+}
+
+.message-content::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: var(--primary);
+    opacity: 0.7;
+}
+
+.message-content:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    border-color: rgba(108, 99, 255, 0.3);
+}
+
+.message-content h3 {
+    color: var(--accent);
+    margin-top: 0;
+    font-weight: 700;
+}
+
+.message-content p {
+    margin-bottom: 0;
+    line-height: 1.6;
+    position: relative;
+    z-index: 1;
+    color: var(--text-muted);
+}
+
+.message-content::after {
+    content: '"';
+    position: absolute;
+    right: 20px;
+    bottom: 10px;
+    font-size: 80px;
+    color: rgba(108, 99, 255, 0.1);
+    font-family: 'Playfair Display', serif;
+    line-height: 0;
+}
+
+/* Animation classes */
+.fade-in-left {
+    animation: fadeInLeft 0.7s forwards;
+}
+
+.fade-in-right {
+    animation: fadeInRight 0.7s forwards;
+}
+
+@keyframes fadeInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+    .timeline::after {
+        left: 31px;
+    }
+    
+    .message-container {
+        width: 100%;
+        padding-left: 70px;
+        padding-right: 20px;
+        left: 0;
+    }
+    
+    .message-container.right {
+        left: 0;
+    }
+    
+    .message-container.left::after, .message-container.right::after {
+        left: 21px;
+    }
+}
+
+/* Footer */
+footer {
+    background-color: rgba(0,0,0,0.2);
+    color: var(--text-muted);
+    font-size: 14px;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 1.5rem 0;
+}
